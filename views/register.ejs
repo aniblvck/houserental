@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House&House</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-100 ">
+    <div>
+
+        <nav class="bg-cyan-500 h-32 p-7 w-full ">
+            <div class="container mx-auto flex justify-between items-center mt-8 w-full">
+                <!-- Logo and Title -->
+                <div class="flex items-center space-x-4">
+
+                    <span class="text-slate-100 text-4xl relative ">House&House</span>
+                </div>
+                <!-- logo -->
+                <div>
+                    <img src="" alt="Logo" class="h-8 w-8 relative right-24">
+                </div>
+
+                <div class="hidden md:flex space-x-6  text-white text-2xl mt-4 font-light ">
+                    <a href="/login" class="hover:text-gray-300    ">Login</a>
+                  
+                </div>
+                <!-- Navigation Links -->
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+            <div id="menu" class="hidden md:hidden">
+                <a href="/login" class="block text-white py-2">Login</a>
+              
+
+            </div>
+
+          
+        </nav>
+
+<div class="container mx-auto flex justify-center items-start  h-screen">
+    
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md mt-10">
+        <h2 class="text-2xl font-bold mb-6">Register</h2>
+        <div class="flex mb-4">
+            <button id="userButton" class="flex-1 bg-cyan-600 text-white py-2 px-4 rounded-l-md hover:bg-cyan-700">Rental</button>
+            <button id="adminButton" class="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-r-md hover:bg-gray-400">Landlord</button>
+        </div>
+        <form id="userForm" action="/register/user" method="POST" enctype="multipart/form-data" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Renter Name</label>
+                <input type="text" name="name" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700"> Phone Number</label>
+                <input type="text" name="phone" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" name="email" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" name="password" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Photo</label>
+                <input type="file" name="photo" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Verification ID (Aadhar card number*)</label>
+                <input type="text" name="verificationId" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <button type="submit" class="w-full bg-cyan-600 text-white py-2 px-4 rounded-md hover:bg-cyan-700">Register</button>
+            </div>
+        </form>
+        <form id="adminForm" action="/register/admin" method="POST" enctype="multipart/form-data" class="space-y-4 hidden">
+           
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Landlord name</label>
+                <input type="text" name="name" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Phone Number</label>
+                <input type="text" name="phone" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" name="email" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" name="password" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Photo</label>
+                <input type="file" name="photo" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Verification ID  (Aadhar card number*)</label>
+                <input type="text" name="verificationId" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+            <div>
+                <button type="submit" class="w-full bg-amber-600 text-white py-2 px-4 rounded-md hover:bg-amber-700">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
+      
+
+    </div>
+
+    <script>
+        document.getElementById('userButton').addEventListener('click', function() {
+            document.getElementById('userForm').classList.remove('hidden');
+            document.getElementById('adminForm').classList.add('hidden');
+            this.classList.add('bg-cyan-600', 'text-white');
+            this.classList.remove('bg-gray-300', 'text-gray-700');
+            document.getElementById('adminButton').classList.add('bg-gray-300', 'text-gray-700');
+            document.getElementById('adminButton').classList.remove('bg-amber-600', 'text-white');
+        });
+
+        document.getElementById('adminButton').addEventListener('click', function() {
+            document.getElementById('userForm').classList.add('hidden');
+            document.getElementById('adminForm').classList.remove('hidden');
+            this.classList.add('bg-amber-600', 'text-white');
+            this.classList.remove('bg-gray-300', 'text-gray-700');
+            document.getElementById('userButton').classList.add('bg-gray-300', 'text-gray-700');
+            document.getElementById('userButton').classList.remove('bg-cyan-600', 'text-white');
+        });
+    </script>
+
+</body>
+
+</html>
